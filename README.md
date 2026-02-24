@@ -20,9 +20,9 @@ Ans: When an event happens like when we click a button, it start's at the elemen
 ### 4. What is Event Delegation in JavaScript? Why is it useful?
 Ans: Instead of adding a click listener to every child, we can add it to the parent using event delegation.
 
-It is useful because:
-->Saves memory.
-->Works for dynamic elements.
+It is useful because it:
+ -Saves memory.
+ -Works for dynamic elements.
 
 ### 5. What is the difference between preventDefault() and stopPropagation() methods?
 Ans: preventDefault(), stops the default action of an element and stopPropagation(), Stops the event from moving up the DOM. Example: using preventDefault(),we can  stops a link from opening a page and when we use stopPropagation() and Click on a button inside a div, the div’s click won't work.

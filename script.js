@@ -1,4 +1,3 @@
-// console.log('Js Connected')
 let interviewCardList = [];
 let rejectedCardList = [];
 let currentStatus = 'all';
@@ -15,9 +14,17 @@ const allCardSection = document.getElementById('available-job');
 
 const mainContainer = document.querySelector('body');
 const interviewCardSection = document.getElementById('interview-job');
+let totalCount1 = document.getElementById('total_1');
+
+document.addEventListener('DOMContentLoaded', function () {
+    calculateCount();
+    updateCalculateCount();
+});
+
 
 function calculateCount() {
     totalCount.innerText = allCardSection.children.length;
+    totalCount1.innerText = allCardSection.children.length;
     interviewCount.innerText = interviewCardList.length;
     rejectedCount.innerText = rejectedCardList.length;
 }
@@ -53,6 +60,7 @@ function toggleStyle(id) {
         interviewCardSection.classList.remove('hidden');
         rejectedData();
     }
+    updateCalculateCount();
 }
 
 mainContainer.addEventListener('click', function (event) {
@@ -76,6 +84,7 @@ mainContainer.addEventListener('click', function (event) {
             rejectedData();
         }
         calculateCount();
+        updateCalculateCount();
     }
     else if (event.target.classList.contains('btn-interview')) {
         const parenNode = event.target.parentNode.parentNode;
@@ -107,7 +116,8 @@ mainContainer.addEventListener('click', function (event) {
         if (currentStatus == 'btn-rejected') {
             rejectedData();
         }
-        calculateCount()
+        calculateCount();
+        updateCalculateCount();
     }
     else if (event.target.classList.contains('btn-rejected')) {
         const parenNode = event.target.parentNode.parentNode;
@@ -139,10 +149,10 @@ mainContainer.addEventListener('click', function (event) {
         if (currentStatus == 'btn-interview') {
             interviewData();
         }
-        calculateCount()
+        calculateCount();
+        updateCalculateCount();
     }
 })
-
 
 function interviewData() {
     interviewCardSection.innerHTML = ''
@@ -180,7 +190,8 @@ function interviewData() {
         `
         interviewCardSection.appendChild(div)
     }
-    blankSectionControl()
+    blankSectionControl();
+    updateCalculateCount();
 }
 
 function rejectedData() {
@@ -218,7 +229,8 @@ function rejectedData() {
         `
         interviewCardSection.appendChild(div)
     }
-    blankSectionControl()
+    blankSectionControl();
+    updateCalculateCount();
 }
 
 function blankSectionControl() {
@@ -247,5 +259,20 @@ function blankSectionControl() {
                 </div>
             `;
         }
+    }
+}
+
+function updateCalculateCount() {
+    if (currentStatus === 'btn-all') {
+        const jobCount = allCardSection.children.length;
+        totalCount1.innerText = `${jobCount} of 8`;
+    }
+    else if (currentStatus === 'btn-interview') {
+        const jobCount = interviewCardList.length;
+        totalCount1.innerText = `${jobCount} of 8`;
+    }
+    else if (currentStatus === 'btn-rejected') {
+        const jobCount = rejectedCardList.length;
+        totalCount1.innerText = `${jobCount} of 8`;
     }
 }

@@ -39,15 +39,15 @@
         <div class="grid grid-cols-3 gap-10">
             <div class="card-body bg-white rounded-xl">
                 <h3 class="card-title text-neutral/80">Total</h3>
-                <p class="text-xl font-semibold text-black-600"><span>8</span></p>
+                <p class="text-xl font-semibold text-black-600"><span id="total">0</span></p>
             </div>
             <div class="card-body bg-white rounded-xl">
                 <h3 class="card-title text-neutral/80">Interview</h3>
-                <p class="text-xl font-semibold text-green-600"><span>0</span></p>
+                <p class="text-xl font-semibold text-green-600"><span id="interview">0</span></p>
             </div>
             <div class="card-body bg-white rounded-xl">
                 <h3 class="card-title text-neutral/80">Rejected</h3>
-                <p class="text-xl font-semibold text-red-600"><span>0</span></p>
+                <p class="text-xl font-semibold text-red-600"><span id="rejected">0</span></p>
             </div>
         </div>
     </header>
@@ -59,15 +59,14 @@
         <h3 class="text-2xl font-normal">Available Jobs</h3>
         <p class="text-neutral/70"><span>8</span> Jobs</p>
     </div>
-    <!-- <div class="flex gap-5">
-        <button class="btn btn-accent bg-[#3B82F6] text-white px-10">All</button>
-        <button class="btn btn-soft bg-white text-black/60">Interview</button>
-        <button class="btn btn-soft bg-white text-black/60">Rejected</button>
-    </div> -->
+
     <div class="flex gap-5">
-        <button id="btn-all" class="btn btn-soft bg-white text-black/60 px-10">All</button>
-        <button id="btn-interview" class="btn btn-soft bg-white text-black/60 px-6">Interview</button>
-        <button id="btn-rejected" class="btn btn-soft bg-white text-black/60 px-6">Rejected</button>
+        <button onclick="toggleStyle('btn-all')" id="btn-all"
+            class="btn btn-soft bg-blue-600 text-white px-10">All</button>
+        <button onclick="toggleStyle('btn-interview')" id="btn-interview"
+            class="btn btn-soft bg-white text-black/60 px-6">Interview</button>
+        <button onclick="toggleStyle('btn-rejected')" id="btn-rejected"
+            class="btn btn-soft bg-white text-black/60 px-6">Rejected</button>
     </div>
 
     <!-- Job Card -->
@@ -77,30 +76,30 @@
             <div class="p-6 bg-white rounded-xl my-6 gap-6">
                 <div class="flex justify-between">
                     <div>
-                        <h3 class="text-2xl font-normal">Mobile First Corp</h3>
-                        <p class="text-xl font-normal text-[#64748B]">React Native Developer</p>
+                        <h3 class="company text-2xl font-normal">Mobile First Corp</h3>
+                        <p class="position text-xl font-normal text-[#64748B]">React Native Developer</p>
                     </div>
                     <div class="flex items-center justify-center">
                         <button
-                            class="flex items-center justify-center w-10 h-10 bg-white text-gray-500 rounded-full shadow-md hover:bg-red-50 hover:text-red-600 transition-colors border border-gray-100">
+                            class="delete-btn flex items-center justify-center w-10 h-10 bg-white text-gray-500 rounded-full shadow-md hover:bg-red-50 hover:text-red-600 transition-colors border border-gray-100">
                             <i class="fa-regular fa-trash-can text-sm"></i>
                         </button>
                     </div>
                 </div>
                 <div>
-                    <p class="text-xl font-extralight text-slate-500 py-3">Remote • Full-time • $130,000 - $175,000</p>
+                    <p class="salary text-xl font-extralight text-slate-500 py-3">Remote • Full-time • $130,000 - $175,000</p>
                 </div>
                 <div class="py-3">
-                    <button class="btn bg-[#EEF4FF] text-[#002C5C]">NOT APPLIED</button>
+                    <button class="status w-32 btn bg-[#EEF4FF] text-[#002C5C]">NOT APPLIED</button><!-- Changed -->
                 </div>
                 <div>
-                    <p class="font-normal text-[#323B49]">Build cross-platform mobile applications using React Native.
+                    <p class="notes font-normal text-[#323B49]">Build cross-platform mobile applications using React Native.
                         Work on products used by millions of
                         users worldwide.</p>
                 </div>
                 <div class="py-3 flex gap-5">
-                    <button class="btn border-green-600 text-green-600 bg-white">INTERVIEW</button>
-                    <button class="btn border-red-600 text-red-600 bg-white">REJECTED</button>
+                    <button class="btn btn-interview border-green-600 text-green-600 bg-white">INTERVIEW</button>
+                    <button class="btn btn-rejected border-red-600 text-red-600 bg-white">REJECTED</button>
                 </div>
             </div>
         </div>
@@ -109,30 +108,30 @@
             <div class="p-6 bg-white rounded-xl my-6 gap-6">
                 <div class="flex justify-between">
                     <div>
-                        <h3 class="text-2xl font-normal">WebFlow Agency</h3>
-                        <p class="text-xl font-normal text-[#64748B]">Web Designer & Developer</p>
+                        <h3 class="company text-2xl font-normal">WebFlow Agency</h3>
+                        <p class="position text-xl font-normal text-[#64748B]">Web Designer & Developer</p>
                     </div>
                     <div class="flex items-center justify-center">
                         <button
-                            class="flex items-center justify-center w-10 h-10 bg-white text-gray-500 rounded-full shadow-md hover:bg-red-50 hover:text-red-600 transition-colors border border-gray-100">
+                            class="delete-btn flex items-center justify-center w-10 h-10 bg-white text-gray-500 rounded-full shadow-md hover:bg-red-50 hover:text-red-600 transition-colors border border-gray-100">
                             <i class="fa-regular fa-trash-can text-sm"></i>
                         </button>
                     </div>
                 </div>
                 <div>
-                    <p class="text-xl font-extralight text-slate-500 py-3">Los Angeles, CA • Part-time • $80,000 -
+                    <p class="salary text-xl font-extralight text-slate-500 py-3">Los Angeles, CA • Part-time • $80,000 -
                         $120,000 </p>
                 </div>
                 <div class="py-3">
-                    <button class="btn bg-[#EEF4FF] text-[#002C5C]">NOT APPLIED</button>
+                    <button class="status w-32 btn bg-[#EEF4FF] text-[#002C5C]">NOT APPLIED</button>
                 </div>
                 <div>
-                    <p class="font-normal text-[#323B49]">Create stunning web experiences for high-profile clients. Must
+                    <p class="notes font-normal text-[#323B49]">Create stunning web experiences for high-profile clients. Must
                         have portfolio and experience with modern web design trends.</p>
                 </div>
                 <div class="py-3 flex gap-5">
-                    <button class="btn border-green-600 text-green-600 bg-white">INTERVIEW</button>
-                    <button class="btn border-red-600 text-red-600 bg-white">REJECTED</button>
+                    <button class="btn btn-interview border-green-600 text-green-600 bg-white">INTERVIEW</button>
+                    <button class="btn btn-rejected border-red-600 text-red-600 bg-white">REJECTED</button>
                 </div>
             </div>
         </div>
@@ -141,30 +140,30 @@
             <div class="p-6 bg-white rounded-xl my-6 gap-6">
                 <div class="flex justify-between">
                     <div>
-                        <h3 class="text-2xl font-normal">DataViz Solutions</h3>
-                        <p class="text-xl font-normal text-[#64748B]">Data Visualization Specialist</p>
+                        <h3 class="company text-2xl font-normal">DataViz Solutions</h3>
+                        <p class="position text-xl font-normal text-[#64748B]">Data Visualization Specialist</p>
                     </div>
                     <div class="flex items-center justify-center">
                         <button
-                            class="flex items-center justify-center w-10 h-10 bg-white text-gray-500 rounded-full shadow-md hover:bg-red-50 hover:text-red-600 transition-colors border border-gray-100">
+                            class="delete-btn flex items-center justify-center w-10 h-10 bg-white text-gray-500 rounded-full shadow-md hover:bg-red-50 hover:text-red-600 transition-colors border border-gray-100">
                             <i class="fa-regular fa-trash-can text-sm"></i>
                         </button>
                     </div>
                 </div>
                 <div>
-                    <p class="text-xl font-extralight text-slate-500 py-3">Boston, MA • Full-time • $125,000 - $165,000
+                    <p class="salary text-xl font-extralight text-slate-500 py-3">Boston, MA • Full-time • $125,000 - $165,000
                     </p>
                 </div>
                 <div class="py-3">
-                    <button class="btn bg-[#EEF4FF] text-[#002C5C]">NOT APPLIED</button>
+                    <button class="status w-32 btn bg-[#EEF4FF] text-[#002C5C]">NOT APPLIED</button>
                 </div>
                 <div>
-                    <p class="font-normal text-[#323B49]">Transform complex data into compelling visualizations.
+                    <p class="notes font-normal text-[#323B49]">Transform complex data into compelling visualizations.
                         Required skills: D3.js, React, and strong analytical thinking.</p>
                 </div>
                 <div class="py-3 flex gap-5">
-                    <button class="btn border-green-600 text-green-600 bg-white">INTERVIEW</button>
-                    <button class="btn border-red-600 text-red-600 bg-white">REJECTED</button>
+                    <button class="btn btn-interview border-green-600 text-green-600 bg-white">INTERVIEW</button>
+                    <button class="btn btn-rejected border-red-600 text-red-600 bg-white">REJECTED</button>
                 </div>
             </div>
         </div>
@@ -173,30 +172,30 @@
             <div class="p-6 bg-white rounded-xl my-6 gap-6">
                 <div class="flex justify-between">
                     <div>
-                        <h3 class="text-2xl font-normal">CloudFirst Inc</h3>
-                        <p class="text-xl font-normal text-[#64748B]">Backend Developer</p>
+                        <h3 class="company text-2xl font-normal">CloudFirst Inc</h3>
+                        <p class="position text-xl font-normal text-[#64748B]">Backend Developer</p>
                     </div>
                     <div class="flex items-center justify-center">
                         <button
-                            class="flex items-center justify-center w-10 h-10 bg-white text-gray-500 rounded-full shadow-md hover:bg-red-50 hover:text-red-600 transition-colors border border-gray-100">
+                            class="delete-btn flex items-center justify-center w-10 h-10 bg-white text-gray-500 rounded-full shadow-md hover:bg-red-50 hover:text-red-600 transition-colors border border-gray-100">
                             <i class="fa-regular fa-trash-can text-sm"></i>
                         </button>
                     </div>
                 </div>
                 <div>
-                    <p class="text-xl font-extralight text-slate-500 py-3">Seattle, WA • Full-time • $140,000 - $190,000
+                    <p class="salary text-xl font-extralight text-slate-500 py-3">Seattle, WA • Full-time • $140,000 - $190,000
                     </p>
                 </div>
                 <div class="py-3">
-                    <button class="btn bg-[#EEF4FF] text-[#002C5C]">NOT APPLIED</button>
+                    <button class="status w-32 btn bg-[#EEF4FF] text-[#002C5C]">NOT APPLIED</button>
                 </div>
                 <div>
-                    <p class="font-normal text-[#323B49]">Design and maintain scalable backend systems using Python and
+                    <p class="notes font-normal text-[#323B49]">Design and maintain scalable backend systems using Python and
                         AWS. Work with modern DevOps practices and cloud infrastructure.</p>
                 </div>
                 <div class="py-3 flex gap-5">
-                    <button class="btn border-green-600 text-green-600 bg-white">INTERVIEW</button>
-                    <button class="btn border-red-600 text-red-600 bg-white">REJECTED</button>
+                    <button class="btn btn-interview border-green-600 text-green-600 bg-white">INTERVIEW</button>
+                    <button class="btn btn-rejected border-red-600 text-red-600 bg-white">REJECTED</button>
                 </div>
             </div>
         </div>
@@ -205,30 +204,30 @@
             <div class="p-6 bg-white rounded-xl my-6 gap-6">
                 <div class="flex justify-between">
                     <div>
-                        <h3 class="text-2xl font-normal">Innovation Labs</h3>
-                        <p class="text-xl font-normal text-[#64748B]">UI/UX Engineer</p>
+                        <h3 class="company text-2xl font-normal">Innovation Labs</h3>
+                        <p class="position text-xl font-normal text-[#64748B]">UI/UX Engineer</p>
                     </div>
                     <div class="flex items-center justify-center">
                         <button
-                            class="flex items-center justify-center w-10 h-10 bg-white text-gray-500 rounded-full shadow-md hover:bg-red-50 hover:text-red-600 transition-colors border border-gray-100">
+                            class="delete-btn flex items-center justify-center w-10 h-10 bg-white text-gray-500 rounded-full shadow-md hover:bg-red-50 hover:text-red-600 transition-colors border border-gray-100">
                             <i class="fa-regular fa-trash-can text-sm"></i>
                         </button>
                     </div>
                 </div>
                 <div>
-                    <p class="text-xl font-extralight text-slate-500 py-3">Austin, TX • Full-time • $110,000 - $150,000
+                    <p class="salary text-xl font-extralight text-slate-500 py-3">Austin, TX • Full-time • $110,000 - $150,000
                     </p>
                 </div>
                 <div class="py-3">
-                    <button class="btn bg-[#EEF4FF] text-[#002C5C]">NOT APPLIED</button>
+                    <button class="status w-32 btn bg-[#EEF4FF] text-[#002C5C]">NOT APPLIED</button>
                 </div>
                 <div>
-                    <p class="font-normal text-[#323B49]">Create beautiful and functional user interfaces for our suite
+                    <p class="notes font-normal text-[#323B49]">Create beautiful and functional user interfaces for our suite
                         of products. Strong design skills and frontend development expertise required.</p>
                 </div>
                 <div class="py-3 flex gap-5">
-                    <button class="btn border-green-600 text-green-600 bg-white">INTERVIEW</button>
-                    <button class="btn border-red-600 text-red-600 bg-white">REJECTED</button>
+                    <button class="btn btn-interview border-green-600 text-green-600 bg-white">INTERVIEW</button>
+                    <button class="btn btn-rejected border-red-600 text-red-600 bg-white">REJECTED</button>
                 </div>
             </div>
         </div>
@@ -237,31 +236,31 @@
             <div class="p-6 bg-white rounded-xl my-6 gap-6">
                 <div class="flex justify-between">
                     <div>
-                        <h3 class="text-2xl font-normal">MegaCorp Solutions</h3>
-                        <p class="text-xl font-normal text-[#64748B]">JavaScript Developer</p>
+                        <h3 class="company text-2xl font-normal">MegaCorp Solutions</h3>
+                        <p class="position text-xl font-normal text-[#64748B]">JavaScript Developer</p>
                     </div>
                     <div class="flex items-center justify-center">
                         <button
-                            class="flex items-center justify-center w-10 h-10 bg-white text-gray-500 rounded-full shadow-md hover:bg-red-50 hover:text-red-600 transition-colors border border-gray-100">
+                            class="delete-btn flex items-center justify-center w-10 h-10 bg-white text-gray-500 rounded-full shadow-md hover:bg-red-50 hover:text-red-600 transition-colors border border-gray-100">
                             <i class="fa-regular fa-trash-can text-sm"></i>
                         </button>
                     </div>
                 </div>
                 <div>
-                    <p class="text-xl font-extralight text-slate-500 py-3">New York, NY • Full-time • $130,000 - $170,00
+                    <p class="salary text-xl font-extralight text-slate-500 py-3">New York, NY • Full-time • $130,000 - $170,00
                     </p>
                 </div>
                 <div class="py-3">
-                    <button class="btn bg-[#EEF4FF] text-[#002C5C]">NOT APPLIED</button>
+                    <button class="status w-32 btn bg-[#EEF4FF] text-[#002C5C]">NOT APPLIED</button>
                 </div>
                 <div>
-                    <p class="font-normal text-[#323B49]">Build enterprise applications with JavaScript and modern
+                    <p class="notes font-normal text-[#323B49]">Build enterprise applications with JavaScript and modern
                         frameworks. We offer competitive compensation, health insurance, and professional development
                         opportunities.</p>
                 </div>
                 <div class="py-3 flex gap-5">
-                    <button class="btn border-green-600 text-green-600 bg-white">INTERVIEW</button>
-                    <button class="btn border-red-600 text-red-600 bg-white">REJECTED</button>
+                    <button class="btn btn-interview border-green-600 text-green-600 bg-white">INTERVIEW</button>
+                    <button class="btn btn-rejected border-red-600 text-red-600 bg-white">REJECTED</button>
                 </div>
             </div>
         </div>
@@ -270,29 +269,29 @@
             <div class="p-6 bg-white rounded-xl my-6 gap-6">
                 <div class="flex justify-between">
                     <div>
-                        <h3 class="text-2xl font-normal">StartupXYZ</h3>
-                        <p class="text-xl font-normal text-[#64748B]">Full Stack Engineer</p>
+                        <h3 class="company text-2xl font-normal">StartupXYZ</h3>
+                        <p class="position text-xl font-normal text-[#64748B]">Full Stack Engineer</p>
                     </div>
                     <div class="flex items-center justify-center">
                         <button
-                            class="flex items-center justify-center w-10 h-10 bg-white text-gray-500 rounded-full shadow-md hover:bg-red-50 hover:text-red-600 transition-colors border border-gray-100">
+                            class="delete-btn flex items-center justify-center w-10 h-10 bg-white text-gray-500 rounded-full shadow-md hover:bg-red-50 hover:text-red-600 transition-colors border border-gray-100">
                             <i class="fa-regular fa-trash-can text-sm"></i>
                         </button>
                     </div>
                 </div>
                 <div>
-                    <p class="text-xl font-extralight text-slate-500 py-3">Remote • Full-time • $120,000 - $160,000</p>
+                    <p class="salary text-xl font-extralight text-slate-500 py-3">Remote • Full-time • $120,000 - $160,000</p>
                 </div>
                 <div class="py-3">
-                    <button class="btn bg-[#EEF4FF] text-[#002C5C]">NOT APPLIED</button>
+                    <button class="status w-32 btn bg-[#EEF4FF] text-[#002C5C]">NOT APPLIED</button>
                 </div>
                 <div>
-                    <p class="font-normal text-[#323B49]">Join our fast-growing startup and work on our core platform.
+                    <p class="notes font-normal text-[#323B49]">Join our fast-growing startup and work on our core platform.
                         Experience with Node.js and React required. Great benefits and equity package included.</p>
                 </div>
                 <div class="py-3 flex gap-5">
-                    <button class="btn border-green-600 text-green-600 bg-white">INTERVIEW</button>
-                    <button class="btn border-red-600 text-red-600 bg-white">REJECTED</button>
+                    <button class="btn btn-interview border-green-600 text-green-600 bg-white">INTERVIEW</button>
+                    <button class="btn btn-rejected border-red-600 text-red-600 bg-white">REJECTED</button>
                 </div>
             </div>
         </div>
@@ -301,31 +300,31 @@
             <div class="p-6 bg-white rounded-xl my-6 gap-6">
                 <div class="flex justify-between">
                     <div>
-                        <h3 class="text-2xl font-normal">TechCorp Industries</h3>
-                        <p class="text-xl font-normal text-[#64748B]">Senior Frontend Developer</p>
+                        <h3 class="company text-2xl font-normal">TechCorp Industries</h3>
+                        <p class="position text-xl font-normal text-[#64748B]">Senior Frontend Developer</p>
                     </div>
                     <div class="flex items-center justify-center">
                         <button
-                            class="flex items-center justify-center w-10 h-10 bg-white text-gray-500 rounded-full shadow-md hover:bg-red-50 hover:text-red-600 transition-colors border border-gray-100">
+                            class="delete-btn flex items-center justify-center w-10 h-10 bg-white text-gray-500 rounded-full shadow-md hover:bg-red-50 hover:text-red-600 transition-colors border border-gray-100">
                             <i class="fa-regular fa-trash-can text-sm"></i>
                         </button>
                     </div>
                 </div>
                 <div>
-                    <p class="text-xl font-extralight text-slate-500 py-3">San Francisco, CA • Full-time • $130,000 -
+                    <p class="salary text-xl font-extralight text-slate-500 py-3">San Francisco, CA • Full-time • $130,000 -
                         $175,000</p>
                 </div>
                 <div class="py-3">
-                    <button class="btn bg-[#EEF4FF] text-[#002C5C]">NOT APPLIED</button>
+                    <button class="status w-32 btn bg-[#EEF4FF] text-[#002C5C]">NOT APPLIED</button>
                 </div>
                 <div>
-                    <p class="font-normal text-[#323B49]">We are looking for an experienced Frontend Developer to build
+                    <p class="notes font-normal text-[#323B49]">We are looking for an experienced Frontend Developer to build
                         scalable web applications using React and TypeScript. You will work with a talented team on
                         cutting-edge projects.</p>
                 </div>
                 <div class="py-3 flex gap-5">
-                    <button class="btn border-green-600 text-green-600 bg-white">INTERVIEW</button>
-                    <button class="btn border-red-600 text-red-600 bg-white">REJECTED</button>
+                    <button class="btn btn-interview border-green-600 text-green-600 bg-white">INTERVIEW</button>
+                    <button class="btn btn-rejected border-red-600 text-red-600 bg-white">REJECTED</button>
                 </div>
             </div>
         </div>
@@ -333,7 +332,7 @@
 
     <!-- Interview Jobs -->
     <section id="interview-job"
-        class="hidden flex flex-col items-center justify-center p-20 bg-white rounded-xl border border-slate-50 my-6">
+        class="hidden flex flex-col items-center justify-center p-20 bg-white rounded-xl border border-slate-50 my-6 ">
         <div class="p-3 rounded-2xl mb-2">
             <img src="./jobs.png" alt="" srcset="">
         </div>
